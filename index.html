@@ -1,0 +1,436 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hirely</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./assets/images/saveicon.ico" type="image/ico">
+    <link rel="icon" href="./assets/images/saveicon.png" type="image/png">
+
+</head>
+
+<body>
+    <a href="mailto:hwi.srmist@gmail.com?subject=Query%20regarding%20Registration%20form!&body=Hello%20HWI-SRM%20Team!">
+        <button class="contact-us-btn" id="contact-us-btn">Contact Us</button>
+    </a>
+
+    <div class="landing-page" id="landing-page">
+        <div class="particles" id="particles"></div>
+        <div class="landing-content">
+            <div class="logo-container"></div>
+            <div class="logo">
+                <img src="Hirely Logo.png" alt="Logo" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+        <h1 class="landing-title" style="font-family: 'ROG Fonts', sans-serif; margin-bottom: 20px; letter-spacing: 0px;">Hirely</h1>
+        <p class="landing-description">One platform. Infinite opportunities. Join. Lead. Grow.</p>
+        <button class="apply-btn" id="apply-btn">Apply Now</button>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container" id="form-container" style="display: none;">
+        <div class="header">
+            <h1>Hirely – Unlocking Campus Talent for the Future!</h1>
+            <p>Think you've got what it takes? <br> Apply today and become a part of the most dynamic team !</p>
+
+            <button id="scroll-to-form" hidden></button>
+            <div class="social-links">
+                <a href="https://www.instagram.com/rag.hav024/" target="_blank" class="social-link">
+                    <img src="./assets/images/instagram.png" alt="Instagram">Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/raghav-baijal-26549a242/" target="_blank" class="social-link">
+                    <img src="./assets/images/linkedin.png" alt="LinkedIn">LinkedIn</a>
+                <a href="https://chat.whatsapp.com/EqMOpdU82IeAEsHmIdZr2p   " target="_blank" class="social-link">
+                    <img src="./assets/images/whatsapp.png" alt="WhatsApp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="recruitmentForm">
+                <div class="section">
+                    <div class="section-title" style="font-size: 35px;">Recruitment Form</div>
+                    <div class="divider"></div>
+
+                    <div class="section">
+                        <div class="section-title" style="color: #9378c7; font-weight: bold;">Personal Details</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName" class="required-field" style="color: #ffffff">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regNumber" class="required-field" style="color: #ffffff">Full Registration Number</label>
+                                <input type="text" id="regNumber" placeholder="RA...." required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="personalEmail" class="required-field" style="color: #ffffff">Personal Email ID</label>
+                                <input type="email" id="personalEmail" placeholder="Enter Personal Email ID" required>
+                                <small id="personalEmailError" style="color: red; display: none;">Enter a Email</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="officialEmail" class="required-field" style="color: #ffffff">Official Email ID</label>
+                                <input type="email" id="officialEmail" placeholder="Enter Official Email ID" required>
+                                <small id="officialEmailError" style="color: red; display: none;">Official email must contain @srmist.edu.in</small>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currentYear" class="required-field" style="color: #ffffff">Year</label>
+                                <select id="currentYear" required>
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st" style="color: #000000;">1</option>
+                                    <option value="2nd " style="color: #000000;">2</option>
+                                    <option value="3rd " style="color: #000000;">3</option>
+                                    <option value="4th " style="color: #000000;">4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="course" class="required-field" style="color: #ffffff">Course</label>
+                                <select id="course" onchange="updateBranches()" required>
+                                    <option value="" disabled selected>Select your Course</option>
+                                    <option value="btech" style="color: #000000;">B.Tech</option>
+                                    <option value="bca" style="color: #000000;">BCA</option>
+                                    <option value="mca" style="color: #000000;">MCA</option>
+                                    <option value="bba" style="color: #000000;">BBA</option>
+                                    <option value="mba" style="color: #000000;">MBA</option>
+                                    <option value="pharma" style="color: #000000;">B.Pharma</option>
+                                    <option value="bsc" style="color: #000000;">B.Sc</option>
+                                    <option value="hotel" style="color: #000000;">Hotel Management</option>
+                                    <option value="phd" style="color: #000000;">PhD</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="branch" class="required-field" style="color: #ffffff">Branch</label>
+                                <select id="branch" onchange="updatesp()" required>
+                                    <option value="" disabled selected>Select your Branch</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="specialization" class="required-field" style="color: #ffffff">Specialization</label>
+                                <select id="specialization" required>
+                                    <option value="" disabled selected>Select your Specialization</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sec" class="required-field" style="color: #ffffff">Section</label>
+                                <select id="sec" required>
+                                    <option value="" disabled selected>Select your Section</option>
+                                    <option value="A" style="color: #000000;">A</option>
+                                    <option value="B" style="color: #000000;">B</option>
+                                    <option value="C" style="color: #000000;">C</option>
+                                    <option value="D" style="color: #000000;">D</option>
+                                    <option value="E" style="color: #000000;">E</option>
+                                    <option value="F" style="color: #000000;">F</option>
+                                    <option value="G" style="color: #000000;">G</option>
+                                    <option value="H" style="color: #000000;">H</option>
+                                    <option value="I" style="color: #000000;">I</option>
+                                    <option value="J" style="color: #000000;">J</option>
+                                    <option value="K" style="color: #000000;">K</option>
+                                    <option value="L" style="color: #000000;">L</option>
+                                    <option value="M" style="color: #000000;">M</option>
+                                    <option value="N" style="color: #000000;">N</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="required-field" style="color: #ffffff">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Enter your phone number" pattern="\d{10}"
+                                    required>
+                                <div id="phoneError" style="color: red; display: none;">Please enter a valid 10-digit number.</div>
+                            </div>
+                        </div>
+                        <small style="display: block; text-align: center; color: #ff0000; margin-bottom: 18px;">Note: If you cannot see your Course, Branch, Specialization or Section please contact us.</small>
+                        <div class="divider"></div>
+
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title" style="color: #9378c7;">Team Preferences</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredTeam1" class="required-field" style="color: #ffffff">Preferred Team (Primary)</label>
+                                <select id="preferredTeam1" required>
+                                    <option value="" disabled selected>Select Team</option>
+                                    <option value="technical" style="color: #000000;">Technical Team</option>
+                                    <option value="design" style="color: #000000;">Design Team</option>
+                                    <option value="editing" style="color: #000000;">Editing Team</option>
+                                    <option value="event" style="color: #000000;">Event Management Team</option>
+                                    <option value="sponsorship" style="color: #000000;">Sponsorship and PR Team</option>
+                                    <option value="social-media" style="color: #000000;">Social Media Team</option>
+                                    <option value="content" style="color: #000000;">Content Team</option>
+
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTeam2" style="color: #ffffff">Preferred Team (Secondary)</label>
+                                <select id="preferredTeam2">
+                                    <option value="" disabled selected>Select Team</option>
+                                    <option value="technical" style="color: #000000;">Technical Team</option>
+                                    <option value="design" style="color: #000000;">Design Team</option>
+                                    <option value="editing" style="color: #000000;">Editing Team</option>
+                                    <option value="event" style="color: #000000;">Event Management Team</option>
+                                    <option value="sponsorship" style="color: #000000;">Sponsorship and PR Team</option>
+                                    <option value="social-media" style="color: #000000;">Social Media Team</option>
+                                    <option value="content" style="color: #000000;">Content Team</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reason" class="required-field" style="color: #ffffff">Reason for Joining</label>
+                                <textarea id="reason" placeholder="Why do you want to join HWI-SRM Chapter?" required></textarea>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+
+                    <div id="additional-preferences">
+                        <div class="section" id="technical-team" style="display: none;">
+                            <div class="section-title" style="color: #9378c7">Technical Team</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="techRole" class="required-field" style="color: #ffffff">Tech Team Sub-Group</label>
+                                    <select id="techRole" required>
+                                        <option value="" disabled selected>Select a Team Sub Group</option>
+                                        <option value="aiml" style="color: #000000;">AIML Development</option>
+                                        <option value="appd" style="color: #000000;">App Development</option>
+                                        <option value="webd" style="color: #000000;">Web Development</option>
+                                        <option value="web3" style="color: #000000;">Web3 Development</option>
+                                        
+                                    </select>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="resumeLink" class="required-field" style="color: #ffffff">Resume link</label>
+                                    <input type="url" id="resumeLink" placeholder="Enter your Resume Link" required>
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="githubLink" class="required-field" style="color: #ffffff">Github Profile Link</label>
+                                    <input type="url" id="githubLink" placeholder="Enter Github Profile Link" required>
+                                    <div id="githubLinkError" style="color: red; display: none;">Enter a valid GitHub link.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedinLink" class="required-field" style="color: #ffffff">Linkedin Profile
+                                        Link</label>
+                                    <input type="url" id="linkedinLink" placeholder="Enter Linkedin Profile Link" required>
+                                    <div id="linkedinLinkError" style="color: red; display: none;">Enter a valid LinkedIn link.</div>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+
+                        <!-- Design Team -->
+                        <div class="section" id="design-team" style="display: none;">
+                            <div class="section-title" style="color: #9378c7">Design Team</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" style="color: white;">Design Software</label>
+                                    <div>
+                                        <input type="checkbox" id="canva" name="designsoft" value="canva">
+                                        <label for="canva" style="color: white;">Canva</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="figma" name="designsoft" value="figma">
+                                        <label for="figma" style="color: white;">Figma</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="adobexd" name="designsoft" value="adobexd">
+                                        <label for="adobexd" style="color: white;">Adobe XD</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="photoshop" name="designsoft" value="photoshop">
+                                        <label for="photoshop" style="color: white;">Photoshop</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="adobeillustrator" name="designsoft" value="adobeillustrator">
+                                        <label for="adobeillustrator" style="color: white;">Adobe Illustrator</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" for="portfolioLinkDesign" style="color: #ffffff">Portfolio Link</label>
+                                    <input type="url" id="portfolioLinkDesign" placeholder="Enter Portfolio Link">
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+
+                        <!-- Editing Team -->
+                        <div class="section" id="editing-team" style="display: none;">
+                            <div class="section-title" style="color: #9378c7">Editing Team</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" style="color: white;">Editing Software</label>
+                                    <div>
+                                        <input type="checkbox" id="premiere-pro" name="editsoft" value="premierepro">
+                                        <label for="premiere-pro" style="color: white;">Adobe Premiere Pro</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="resolve" name="editsoft" value="resolve">
+                                        <label for="resolve" style="color: white;">DaVinci Resolve</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="filmora" name="editsoft" value="filmora">
+                                        <label for="filmora" style="color: white;">Wondershare Filmora</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="mobile-editors" name="editsoft" value="mobileeditors">
+                                        <label for="mobile-editors" style="color: white;">Mobile Editors (Clipcut, VN, etc.)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" for="portfolioLinkEditing" style="color: #ffffff">Portfolio Link</label>
+                                    <input type="url" id="portfolioLinkEditing" placeholder="Enter Portfolio Link">
+                                </div>
+                            </div>
+
+
+                            <div class="divider"></div>
+                        </div>
+                        <!--Social Media Team-->
+
+                        <div class="section" id="social-media-team" style="display: none;">
+                            <div class="section-title" style="color: #9378c7">Social Media Team</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" for="portfolioLinkSocial" class="required-field" style="color: #ffffff">Portfolio</label>
+                                    <input type="url" id="portfolioLinkSocial" placeholder="Enter Portfolio Link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedinLinkSocial" class="required-field" style="color: #ffffff">LinkedIn Profile</label>
+                                    <input type="url" id="linkedinLinkSocial" placeholder="Enter your LinkedIn Profile Link" required>
+                                    <div id="linkedinLinkError" style="color: red; display: none;">Enter a valid LinkedIn link.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="twitterLinkSocial" class="required-field" style="color: #ffffff">X/Twitter Link</label>
+                                    <input type="text" id="twitterLinkSocial" placeholder="Enter X/Twitter Profile Link Social" required>
+                                    <div id="xLinkError" style="color: red; display: none;">Enter a valid X.com or Twitter link. </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="instagramLinkSocial" class="required-field" style="color: #ffffff">Instagram Link</label>
+                                    <input type="text" id="instagramLinkSocial" placeholder="Enter your Instagram Profile Link" required>
+                                    <div id="instagramLinkError" style="color: red; display: none;">Enter a valid Instagram link.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discordLinkSocial" class="required-field" style="color: #ffffff">Discord</label>
+                                    <input type="text" id="DiscordLinkSocial" placeholder="Enter your Discord Profile Link" required>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+
+                        <!-- Content Writing Team -->
+
+                        <div class="section" id="content-team" style="display: none;">
+                            <div class="section-title" style="color: #9378c7">Content Writing Team</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required-field" for="portfolioLinkContent" style="color: #ffffff">Portfolio</label>
+                                    <input type="url" id="portfolioLinkContent" placeholder="Enter Portfolio Link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedinLinkContent" class="required-field" style="color: #ffffff">LinkedIn Profile</label>
+                                    <input type="url" id="linkedinLinkContent" placeholder="Enter your LinkedIn Profile Link" required>
+                                    <div id="linkedinLinkError" style="color: red; display: none;">Enter a valid LinkedIn link.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="twitterLinkContent" class="required-field" style="color: #ffffff">X/Twitter Link </label>
+                                    <input type="text" id="twitterLinkContent" placeholder="Enter X/Twitter Profile Link"
+                                        required>
+                                    <div id="xLinkError" style="color: red; display: none;">Enter a valid X.com or Twitter link. </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="instagramLinkSocial" class="required-field" style="color: #ffffff">Instagram Link</label>
+                                    <input type="text" id="instagramLinkContent" placeholder="Enter your Instagram Profile Link" required>
+                                    <div id="instagramLinkError" style="color: red; display: none;">Enter a valid Instagram link.</div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="text-align: center;">
+                        <button name="submit" type="submit" class="apply-btn">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- <div class="thank-you-page" id="thank-you-page">
+                <div class="landing-content">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <img src="./assets/images/saveicon.png" alt="Thank You Logo" style="width: 100px; height: 100px;">
+                        </div>
+                    </div>
+                    <h1 class="landing-title">Thank You!</h1>
+                    <p class="landing-description">We have received your application. We will reach out to you shortly.</p>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Audio Control Panel -->
+        <div class="audio-controls" id="audio-controls">
+            <button id="mute-btn">🔊</button>
+            <input type="range" id="volume-control" min="0" max="100" value="50" class="volume-control" >
+            <button id="stop-btn">⏸️</button>
+        </div>
+
+        <!-- Audio Element -->
+        <audio id="background-music" loop>
+            <source src="./assets/music/BG-AaChalKeTujhe.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="module" src="scripts.js"></script>
+        <script type="module" src="database.js"></script>
+    </div>
+    
+    </body>
+</html>
